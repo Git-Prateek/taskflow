@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 requires declaring dark mode via CSS — darkMode in tailwind.config.ts is ignored */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes tf-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes tf-slide-up {
+  from { transform: translateY(1.5rem); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+
+@keyframes tf-scale-in {
+  from { transform: scale(0.96); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes tf-slide-in-right {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* ── Scrollbars ──────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.dark * {
+  scrollbar-color: #374151 transparent;
+}
+
+/* Ensure date/time inputs always show the correct colour in dark mode */
+.dark input[type='date'],
+.dark input[type='time'],
+.dark input[type='datetime-local'] {
+  color-scheme: dark;
+}
+
